@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <div id="innerblock">
+            <!-- Score Board -->
+            <div id="scoresection">
+
+                <div class="scoreelem">
+                    <p>Hit:</p>
+                    <div id="hitcont">-</div>
+                </div>
+
+                <div class="scoreelem">
+                    <p>Timer:</p>
+                    <div id="timercont">60</div>
+                </div>
+
+                <div class="scoreelem">
+                    <p>Score:</p>
+                    <div id="scorecont">0</div>
+                </div>
+            </div>
+
+            <!-- Bubbles Section -->
+            <div id="mainsection">
+                <!-- <div class="bubble">5</div> -->
+            </div>
+        </div>
+
+        <!-- Game-end Pop-Up -->
+        <div class="modal">
+            <button class="closeBtn" onclick="closeModal()">
+                <img src="./close.png" width="20px" height="20px" onclick="closeModal">
+            </button>
+            <div id="modalHead">TIME OUT !</div>
+            <div id="line-1">
+                <p>Your Score: </p>
+                <div id="finalscore">-</div>
+            </div>
+
+            <div class="btnCont">
+                <button class="rstBtn" onClick="window.location.reload();">Restart Game</button>
+            </div>
+        </div>
+        
+        <!-- Overlay -->
+        <div class="overlay"></div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="./script.js"></script>
+</body>
+</html>

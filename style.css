@@ -1,0 +1,251 @@
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    
+}
+
+#wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(102, 45, 140, 1) 0%, rgba(237, 30, 121, 1) 100%);
+    position: relative;
+}
+
+#innerblock{
+    width: 80%;
+    height: 80%;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 15px;
+}
+
+#scoresection{
+    padding: 10px;
+    gap: 15%;
+    width: 100%;
+    height: 15%;
+    background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(47, 67, 83, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoreelem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.scoreelem p{
+    color: white;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.scoreelem div{
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    color: rgb(79, 79, 79);
+    font-weight: 600;
+    font-size: 25px;
+}
+
+#mainsection{
+    display: flex;
+    gap: 10px;
+    margin: 20px 19px;
+    flex-wrap: wrap;
+}
+
+.bubble{
+    padding: 10px 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(47, 69, 86, 1) 100%);
+    font-size: 20px;
+    
+}
+
+.bubble:hover{
+    background: linear-gradient(90deg, rgba(17, 61, 120, 1) 0%, rgba(72, 106, 133, 1) 100%);
+    cursor: pointer;
+}
+
+.bubble:active{
+    background: linear-gradient(90deg, rgb(109, 123, 139) 0%, rgb(87, 115, 137)00%);
+}
+
+/* Styling the Endgame Pop-up: */
+.overlay {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.436);
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    transition: 0.5s ease-in-out;
+}
+
+.overlayactive{
+    opacity: 1;
+    /* To make everything Unselectable: */
+    pointer-events: initial;
+}
+
+.modal{
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    z-index: 1;
+    border: 4px solid rgb(109, 123, 139);
+    border-radius: 30px;
+    background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(47, 67, 83, 1) 100%);
+    scale: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.active{
+    scale: 1;
+}
+
+.modal div{
+    position: relative;
+}
+
+.modal .closeBtn{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 4;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#modalHead{
+    color:rgba(255, 228, 196, 0.842);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+#line-1{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 5% 20%;
+    width: 100%;
+    height: 40%;
+    font-size: 40px;
+    color: aliceblue;
+}
+
+/* Animated restart Button: */
+
+.btnCont {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+  
+.rstBtn {
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+}
+  
+.rstBtn::before {
+  content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0,255,203,.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 1s ease-in-out 0s;
+}
+  
+.rstBtn:hover, .rstBtn:focus {
+    color: #313133;
+    transform: translateY(-6px);
+}
+  
+.rstBtn:hover::before, button:focus::before {
+    opacity: 1;
+}
+  
+.rstBtn::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+}
+  
+.rstBtn:hover::after, button:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+@keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+}
+
